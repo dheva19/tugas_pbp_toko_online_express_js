@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Online</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="container-fluid mt-3">
+        <div class="p-md-4">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mt-3">Data Produk</h3>
+                <a href="/beli.html">Beli Barang</a>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="card m-1">
+                        <form id="create-produk-form">
+                        <div class="card-header">
+                            <h5>Tambah Produk</h5>
+                        </div>
+                        <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="kode_produk" class="form-label">Kode Produk</label>
+                                    <input type="text" name="kode_produk" id="kode_produk" class="form-control" placeholder="PRK-000" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nama_produk" class="form-label">Nama Produk</label>
+                                    <input type="text" name="nama_produk" id="nama_produk" class="form-control" placeholder="Produk" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="harga" class="form-label">Harga</label>
+                                    <input type="number" name="harga" id="harga" class="form-control" placeholder="5000" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="stok" class="form-label">Stok</label>
+                                    <input type="number" name="stok" id="stok" class="form-control" placeholder="50" required>
+                                </div>  
+                        </div>
+                        <div class="card-footer">
+                            <div class="m-1 row gap-2">
+                                <button type="submit" class="btn btn-primary w-100">Buat</button>
+                                <button type="reset" class="btn btn-outline-secondary w-100">Reset</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8">
+                    <div class="card m-1">
+                        <div class="card-header">
+                            <h5>Tabel Produk</h5>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th style="white-space: nowrap;">Kode Produk</th>
+                                        <th style="white-space: nowrap;">Nama Produk</th>
+                                        <th>Harga</th>
+                                        <th>Stok</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="produk-table-body">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button type="button" id="button-open-edit-modal" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#editProdukModal">
+        Open Edit Modal
+    </button>
+    
+    <div class="modal fade" id="editProdukModal" tabindex="-1" aria-labelledby="editProdukModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editProdukModalLabel">Edit Produk</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="edit_produk_form">
+                        <div class="modal-body">
+                            <input type="hidden" name="id_edit_produk" id="id_edit_produk">
+                        <div class="mb-3">
+                            <label for="kode_produk" class="form-label">Kode Produk</label>
+                            <input type="text" name="kode_produk" id="edit_kode_produk" class="form-control" placeholder="PRK-000" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nama_produk" class="form-label">Nama Produk</label>
+                            <input type="text" name="nama_produk" id="edit_nama_produk" class="form-control" placeholder="Produk" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="harga" class="form-label">Harga</label>
+                            <input type="number" name="harga" id="edit_harga" class="form-control" placeholder="5000" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="stok" class="form-label">Stok</label>
+                            <input type="number" name="stok" id="edit_stok" class="form-control" placeholder="50" required>
+                        </div>  
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="button-close-modal" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
